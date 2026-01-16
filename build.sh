@@ -32,6 +32,10 @@ esac
 
 # Set binary name based on platform and architecture
 BINARY_NAME="flaretunnel-$GOOS-$GOARCH"
+# Use 'macos' instead of 'darwin' for user-friendly naming
+if [ "$GOOS" = "darwin" ]; then
+    BINARY_NAME="flaretunnel-macos-$GOARCH"
+fi
 if [ "$GOOS" = "windows" ]; then
     BINARY_NAME="flaretunnel-$GOOS-$GOARCH.exe"
 fi
