@@ -38,7 +38,8 @@ fi
 
 # Build for current platform
 echo "🏗️  Building for current platform ($GOOS/$GOARCH)..."
-go build -ldflags="-s -w" -o "$BINARY_NAME" FlareTunnel.go
+
+GOOS=$GOOS GOARCH=$GOARCH go build -ldflags="-s -w" -o FlareTunnel FlareTunnel.go
 
 echo "✅ Build complete: ./$BINARY_NAME"
 echo ""
