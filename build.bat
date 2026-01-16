@@ -44,12 +44,12 @@ if /i "%REPLY%"=="y" (
     echo   Building for macOS (amd64)...
     set GOOS=darwin
     set GOARCH=amd64
-    go build -o flaretunnel-macos-amd64 flaretunnel.go
+    go build -ldflags="-s -w" -o flaretunnel-macos-amd64 flaretunnel.go
     
     echo   Building for macOS (arm64)...
     set GOOS=darwin
     set GOARCH=arm64
-    go build -o flaretunnel-macos-arm64 flaretunnel.go
+    go build -ldflags="-s -w" -o flaretunnel-macos-arm64 flaretunnel.go
     
     echo.
     echo ✅ Cross-compilation complete!
