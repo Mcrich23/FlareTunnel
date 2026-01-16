@@ -14,9 +14,9 @@ echo "🏗️  Building for current platform..."
 # Note: On macOS, avoid using -s flag as it strips the LC_UUID load command
 # which causes dyld to crash with "missing LC_UUID load command" error
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    go build -o flaretunnel flaretunnel.go
+    go build -o flaretunnel FlareTunnel.go
 else
-    go build -ldflags="-s -w" -o flaretunnel flaretunnel.go
+    go build -ldflags="-s -w" -o flaretunnel FlareTunnel.go
 fi
 
 echo "✅ Build complete: ./flaretunnel"
@@ -40,23 +40,23 @@ then
     
     # Windows
     echo "  Building for Windows (amd64)..."
-    GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o flaretunnel-windows-amd64.exe flaretunnel.go
+    GOOS=windows GOARCH=amd64 go build -ldflags="-s -w" -o flaretunnel-windows-amd64.exe FlareTunnel.go
     
     # Linux
     echo "  Building for Linux (amd64)..."
-    GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o flaretunnel-linux-amd64 flaretunnel.go
+    GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o flaretunnel-linux-amd64 FlareTunnel.go
     
     # macOS Intel
     echo "  Building for macOS (amd64)..."
-    GOOS=darwin GOARCH=amd64 go build -o flaretunnel-macos-amd64 flaretunnel.go
+    GOOS=darwin GOARCH=amd64 go build -o flaretunnel-macos-amd64 FlareTunnel.go
     
     # macOS Apple Silicon
     echo "  Building for macOS (arm64)..."
-    GOOS=darwin GOARCH=arm64 go build -o flaretunnel-macos-arm64 flaretunnel.go
+    GOOS=darwin GOARCH=arm64 go build -o flaretunnel-macos-arm64 FlareTunnel.go
     
     # Linux ARM (Raspberry Pi, etc.)
     echo "  Building for Linux (arm64)..."
-    GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o flaretunnel-linux-arm64 flaretunnel.go
+    GOOS=linux GOARCH=arm64 go build -ldflags="-s -w" -o flaretunnel-linux-arm64 FlareTunnel.go
     
     echo ""
     echo "✅ Cross-compilation complete!"

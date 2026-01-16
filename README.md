@@ -58,6 +58,8 @@ cd FlareTunnel
 go build -o FlareTunnel FlareTunnel.go
 ```
 
+> **⚠️ Important for macOS users:** Do NOT use `-ldflags="-s -w"` when building on macOS, as it strips the LC_UUID load command and causes the binary to crash with a dyld error.
+
 ## 🚀 Usage
 
 ### 1. Configuration
