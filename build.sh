@@ -11,7 +11,24 @@ go mod download
 
 # Detect current platform
 GOOS=$(go env GOOS)
-GOARCH=$(go env GOARCH)
+
+# Detect architecture using system detection (more reliable on macOS)
+SYSTEM_ARCH=$(uname -m)
+case "$SYSTEM_ARCH" in
+    x86_64|amd64)
+        GOARCH="amd64"
+        ;;
+    aarch64|arm64)
+        GOARCH="arm64"
+        ;;
+    armv7l)
+        GOARCH="arm"
+        ;;
+    *)
+        # Fallback to Go's detection
+        GOARCH=$(go env GOARCH)
+        ;;
+esac
 
 # Set binary name based on platform and architecture
 BINARY_NAME="flaretunnel-$GOOS-$GOARCH"
