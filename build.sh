@@ -30,14 +30,10 @@ case "$SYSTEM_ARCH" in
         ;;
 esac
 
-# Set binary name based on platform and architecture
-BINARY_NAME="flaretunnel-$GOOS-$GOARCH"
-# Use 'macos' instead of 'darwin' for user-friendly naming
-if [ "$GOOS" = "darwin" ]; then
-    BINARY_NAME="flaretunnel-macos-$GOARCH"
-fi
+# Set binary name for current platform
+BINARY_NAME="FlareTunnel"
 if [ "$GOOS" = "windows" ]; then
-    BINARY_NAME="flaretunnel-$GOOS-$GOARCH.exe"
+    BINARY_NAME="FlareTunnel.exe"
 fi
 
 # Build for current platform
