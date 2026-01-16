@@ -13,10 +13,10 @@ go mod download
 GOOS=$(go env GOOS)
 GOARCH=$(go env GOARCH)
 
-# Set binary name based on platform
-BINARY_NAME="flaretunnel"
+# Set binary name based on platform and architecture
+BINARY_NAME="flaretunnel-$GOOS-$GOARCH"
 if [ "$GOOS" = "windows" ]; then
-    BINARY_NAME="flaretunnel.exe"
+    BINARY_NAME="flaretunnel-$GOOS-$GOARCH.exe"
 fi
 
 # Build for current platform
