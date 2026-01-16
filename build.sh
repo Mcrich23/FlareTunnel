@@ -30,7 +30,7 @@ case "$SYSTEM_ARCH" in
         ;;
 esac
 
-# Set binary name for current platform
+# Set binary name for current platform (simple name for ease of use)
 BINARY_NAME="FlareTunnel"
 if [ "$GOOS" = "windows" ]; then
     BINARY_NAME="FlareTunnel.exe"
